@@ -1,0 +1,44 @@
+.App {
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &_h {
+    flex-direction: row;
+  }
+}
+
+.button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icon > * {
+  font-size: 2rem;
+}
+
+.timer {
+  &__setting_wrapper {
+    cursor: pointer;
+  }
+
+  &__label {
+  }
+
+  &__length {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+}
+
+.hidden {
+  color: transparent;
+}
