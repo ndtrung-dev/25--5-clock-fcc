@@ -2,13 +2,12 @@ import "./App.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import {
-  faAnglesUp,
-  faAnglesDown,
+  faAnglesLeft,
+  faAnglesRight,
   faCirclePlay,
   faCirclePause,
   faRotateRight,
 } from "@fortawesome/free-solid-svg-icons";
-import $ from "jquery";
 
 const DEFAULT_SESSION_DURATION = 25 * 60;
 const DEFAULT_BREAK_DURATION = 5 * 60;
@@ -128,65 +127,12 @@ function App() {
 
   return (
     <div className="App container">
-      <div className="App_wrapper container">
-        <div id="session-timer" className="timer container">
-          <h2 className="timer__label" id="session-label">
-            Session duration
-          </h2>
-          <div className="timer__setting_wrapper container ">
-            <div
-              className={`timer__increment icon button ${
-                isPlaying && "timer__setting-blocked"
-              }`}
-              id="session-increment"
-              onClick={() => handleIncrement(SESSION)}
-            >
-              <FontAwesomeIcon icon={faAnglesUp} />
-            </div>
-            <h3 className="timer__length" id="session-length">
-              {sessionDuration / 60}
-            </h3>
-            <div
-              className={`timer__decrement icon button ${
-                isPlaying && "timer__setting-blocked"
-              }`}
-              id="session-decrement"
-              onClick={() => handleDecrement(SESSION)}
-            >
-              <FontAwesomeIcon icon={faAnglesDown} />
-            </div>
-          </div>
-        </div>
-        <div id="break-timer" className="timer container">
-          <h2 className="timer__label" id="break-label">
-            Break duration
-          </h2>
-          <div className="timer__setting_wrapper container ">
-            <div
-              className={`timer__increment button icon ${
-                isPlaying && "timer__setting-blocked"
-              }`}
-              id="break-increment"
-              onClick={() => handleIncrement(BREAK)}
-            >
-              <FontAwesomeIcon icon={faAnglesUp} />
-            </div>
-            <h3 className="timer__length" id="break-length">
-              {breakDuration / 60}
-            </h3>
-            <div
-              className={`timer__decrement button icon ${
-                isPlaying && "timer__setting-blocked"
-              }`}
-              id="break-decrement"
-              onClick={() => handleDecrement(BREAK)}
-            >
-              <FontAwesomeIcon icon={faAnglesDown} />
-            </div>
-          </div>
-        </div>
-        <div id="current-timer" className="timer container">
-          <h2 className={`timer__label`} id="timer-label">
+      <div className="App__wrapper container">
+        <div
+          id="current-timer"
+          className={`timer container ${isPlaying ? "timer__runing" : ""}`}
+        >
+          <h2 className="timer__label" id="timer-label">
             {runningTimer.type}
           </h2>
           <h3 className={`timer__length `} id="time-left">
@@ -203,6 +149,64 @@ function App() {
             </div>
             <div id="reset" className="icon button" onClick={handleReset}>
               <FontAwesomeIcon icon={faRotateRight} />
+            </div>
+          </div>
+        </div>
+        <div className="container container_h timer__setting_wrapper__outer">
+          <div id="session-timer" className="timer container ">
+            <h2 className="timer__label" id="session-label">
+              Session duration
+            </h2>
+            <div className="timer__setting_wrapper container container_h ">
+              <div
+                className={`timer__increment icon button ${
+                  isPlaying && "timer__setting-blocked"
+                }`}
+                id="session-increment"
+                onClick={() => handleDecrement(SESSION)}
+              >
+                <FontAwesomeIcon icon={faAnglesLeft} />
+              </div>
+              <h3 className="timer__length" id="session-length">
+                {sessionDuration / 60}
+              </h3>
+              <div
+                className={`timer__decrement icon button ${
+                  isPlaying && "timer__setting-blocked"
+                }`}
+                id="session-decrement"
+                onClick={() => handleIncrement(SESSION)}
+              >
+                <FontAwesomeIcon icon={faAnglesRight} />
+              </div>
+            </div>
+          </div>
+          <div id="break-timer" className="timer container ">
+            <h2 className="timer__label" id="break-label">
+              Break duration
+            </h2>
+            <div className="timer__setting_wrapper container container_h">
+              <div
+                className={`timer__increment button icon ${
+                  isPlaying && "timer__setting-blocked"
+                }`}
+                id="break-increment"
+                onClick={() => handleDecrement(BREAK)}
+              >
+                <FontAwesomeIcon icon={faAnglesLeft} />
+              </div>
+              <h3 className="timer__length" id="break-length">
+                {breakDuration / 60}
+              </h3>
+              <div
+                className={`timer__decrement button icon ${
+                  isPlaying && "timer__setting-blocked"
+                }`}
+                id="break-decrement"
+                onClick={() => handleIncrement(BREAK)}
+              >
+                <FontAwesomeIcon icon={faAnglesRight} />
+              </div>
             </div>
           </div>
         </div>
