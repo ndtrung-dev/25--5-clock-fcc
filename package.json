@@ -1,8 +1,8 @@
 {
-  "name": "25--5-clock",
+  "name": "25--5-clock-fcc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ndtrung-dev.github.io/25--5-clock",
+  "homepage": "https://ndtrung-dev.github.io/25--5-clock-fcc",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",

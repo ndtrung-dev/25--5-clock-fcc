@@ -118,28 +118,13 @@ function App() {
             timeLeft: cur.type == SESSION ? breakDuration : sessionDuration,
           };
         });
+        audioBeep.currentTime = 0;
+        audioBeep.play();
         counter.countDown && clearTimeout(counter.countDown);
       }
       counter.countDown && clearTimeout(counter.countDown);
     };
   }, [isPlaying, runningTimer]);
-
-  function playBeep() {
-    audioBeep.currentTime = 0;
-    audioBeep.play();
-  }
-
-  useEffect(() => {
-    if (
-      runningTimer.type == SESSION &&
-      runningTimer.timeLeft == sessionDuration
-    ) {
-      playBeep();
-    }
-    if (runningTimer.type == BREAK && runningTimer.timeLeft == breakDuration) {
-      playBeep();
-    }
-  }, [runningTimer]);
 
   return (
     <div className="App container">
@@ -220,9 +205,6 @@ function App() {
               <FontAwesomeIcon icon={faRotateRight} />
             </div>
           </div>
-        </div>
-        <div className="timer__alarm" id="alarm wrapper">
-          <audio src="" id="beep"></audio>
         </div>
       </div>
     </div>
