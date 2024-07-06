@@ -159,10 +159,10 @@ function App() {
             </h2>
             <div className="timer__setting_wrapper container container_h ">
               <div
-                className={`timer__increment icon button ${
+                className={`timer__decrement icon button ${
                   isPlaying && "timer__setting-blocked"
                 }`}
-                id="session-increment"
+                id="session-decrement"
                 onClick={() => handleDecrement(SESSION)}
               >
                 <FontAwesomeIcon icon={faAnglesLeft} />
@@ -171,10 +171,10 @@ function App() {
                 {sessionDuration / 60}
               </h3>
               <div
-                className={`timer__decrement icon button ${
+                className={`timer__increment icon button ${
                   isPlaying && "timer__setting-blocked"
                 }`}
-                id="session-decrement"
+                id="session-increment"
                 onClick={() => handleIncrement(SESSION)}
               >
                 <FontAwesomeIcon icon={faAnglesRight} />
@@ -187,10 +187,10 @@ function App() {
             </h2>
             <div className="timer__setting_wrapper container container_h">
               <div
-                className={`timer__increment button icon ${
+                className={`timer__decrement button icon ${
                   isPlaying && "timer__setting-blocked"
                 }`}
-                id="break-increment"
+                id="break-decrement"
                 onClick={() => handleDecrement(BREAK)}
               >
                 <FontAwesomeIcon icon={faAnglesLeft} />
@@ -199,10 +199,10 @@ function App() {
                 {breakDuration / 60}
               </h3>
               <div
-                className={`timer__decrement button icon ${
+                className={`timer__increment button icon ${
                   isPlaying && "timer__setting-blocked"
                 }`}
-                id="break-decrement"
+                id="break-increment"
                 onClick={() => handleIncrement(BREAK)}
               >
                 <FontAwesomeIcon icon={faAnglesRight} />
